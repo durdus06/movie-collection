@@ -11,14 +11,13 @@ Movie Collection responsive mobil uyumlu bir projedir. Kullanıcılar email adre
 
 ## Projede ek olarak kullanılan teknolojiler ve araçlar
 ### DataTables
-    DataTables, aşağıda belirtilen tüm bu gelişmiş özellikleri herhangi bir HTML tablosuna ekleyebilen jQuery kütüphanesi için bir eklentidir.
-
-    - Sayfalama
-    - Anlık aramalar
-    - Çoklu sütun sıralaması
-    - Çoğu data kaynağını kullanabiliyor olması
-    - Kolayca tema uygulanabilmesi
-    - Mobil uyumlu olması
+DataTables, aşağıda belirtilen tüm bu gelişmiş özellikleri herhangi bir HTML tablosuna ekleyebilen jQuery kütüphanesi için bir eklentidir.
+- Sayfalama
+- Anlık aramalar
+- Çoklu sütun sıralaması
+- Çoğu data kaynağını kullanabiliyor olması
+- Kolayca tema uygulanabilmesi
+- Mobil uyumlu olması
 
 ### Bootstrap
 Hızlı tasarım ve ihtiyacınıza göre düzenleyebileceğiniz responsive mobil cihazlarla uyumlu siteler geliştirilmesine olanak tanıyan dünyanın en popüler front-end aracıdır. Bu sayede hazırlamış olduğum proje responsive bir tasarıma sahiptir.
