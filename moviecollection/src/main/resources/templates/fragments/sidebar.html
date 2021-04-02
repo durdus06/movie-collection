@@ -1,0 +1,10 @@
+<div th:fragment="sidebar">
+	<h2 class="my-4">GENRES</h2>
+	<div class="list-group font-weight-bold">
+		<tr th:each="genre : ${genres}">
+			<td>
+				<a th:href="@{/show/genre/{id}/movies(id=${genre.id})}" class="list-group-item" th:id="'gen_' + ${genre.id}" th:text="${genre.name}">Genre</a>
+			</td>		         												
+		</tr>
+	</div>
+</div>

@@ -1,0 +1,124 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Movie Collection - Register</title>
+
+<!-- Bootstrap CSS  -->
+<link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+
+<!-- Bootstrap literia theme CSS -->
+<link href="../static/css/bootstrap-literia-theme.min.css" th:href="@{/css/bootstrap-literia-theme.min.css}" rel="stylesheet" />
+
+<!-- Fontawsome CSS -->
+<link href="../static/css/all.css" th:href="@{/css/all.css}" rel="stylesheet" />
+
+<!-- Custom CSS -->
+<link href="../static/css/mymoviecollection.css" th:href="@{/css/mymoviecollection.css}" rel="stylesheet" />
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- Navigation -->
+		 <nav class="navbar navbar-expand-lg navbar-inverse navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand font-weight-bold active" th:href="@{/home}">Movie Collection</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav  ml-auto font-weight-bold">
+             
+            <li id="login" class="nav-item">
+              <a class="nav-link" th:href="@{/login}">Sign in</a>
+            </li>            
+          </ul>
+         
+        </div>
+      </div>
+    </nav>
+		<!-- Page Content -->
+		<div class="container">
+			<div class="col-md-6 offset-md-3">
+				<div class="card">
+					<div class="card-header bg-primary text-center text-white">
+						<h4>Sign Up</h4>
+						
+					</div>
+
+					<div class="card-body">
+						<form th:action="@{/register}" th:object="${user}" method="post">
+							<!-- Hidden fields for Movie -->
+							<input type="hidden" th:field="*{id}" /> 
+							<input type="hidden" th:field="*{roles}" /> 
+							
+							<div class="form-group ">
+								<label class="control-label   font-weight-bold" for="firstName">First Name:</label> 
+								<input type="text" th:field="*{firstName}" class="form-control" name="firstName" id="firstName" placeholder="Your first name" />
+								<em th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color: red">First Name Error</em>
+							</div>
+							<div class="form-group ">
+								<label  class="control-label   font-weight-bold" for="lastName">Last Name:</label> 
+								<input type="text" class="form-control"  th:field="*{lastName}"  name="lastName" id="lastName" placeholder="Your last name" />
+								<em th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color: red">Last Name Error</em>
+							</div>
+							<div class="form-group ">
+								<label  class="control-label   font-weight-bold" for="email">Email Address:</label> 
+								<input type="text" class="form-control"  th:field="*{email}"name="email" id="email" placeholder="Your email address" />
+								<em th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red">Email Address Error</em>
+							</div>
+
+							<div class="form-group eyePass">
+								<label  class="control-label   font-weight-bold" for="password">Password:</label>
+								<div class="input-group" id="show_hide_password">
+									<input type="password" class="form-control"  th:field="*{password}" name="password" id="password" placeholder="Password" />
+									<div class="input-group-addon">
+										<i class="far fa-eye-slash" id="togglePassword"></i>
+									
+									</div>
+								</div>
+								<em th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red">Password Error</em>
+							
+							</div>
+							
+								<div class="form-group ">
+									<input type="submit" name="submit"  id="submit" value="Register" class="btn btn-primary  btn-block"/>		
+									
+							</div>	
+
+						</form>
+						
+						<p>Do you have an account? <a th:href="@{/login}"> Login here </a>
+						
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div th:replace="fragments/footer :: footer"></div>
+
+		<!-- jQuery -->
+		<script th:src="@{/js/jquery.min.js}"></script>
+		
+		<!-- jQuery Validation -->
+		<script th:src="@{/js/jquery.validate.min.js}"></script>
+		
+		<!-- Bootstrap core JavaScript -->
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		
+		<!-- Custom JavaScript -->
+		<script th:src="@{/js/mymoviecollection.js}"></script>
+
+	</div>
+</body>
+
+</html>

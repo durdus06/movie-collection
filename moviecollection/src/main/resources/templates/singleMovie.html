@@ -1,0 +1,88 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout.html}">
+<head>
+</head>
+
+<body>
+	<div layout:fragment="pagecontent">
+		<div class="container">
+			<!-- Breadcrumb -->
+			<div class="row">
+				<div class="col-xs-12">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a th:href="@{/home}">Home</a></li>
+						<li class="breadcrumb-item"><a th:href="@{/show/all/movies}">All Movies</a></li>
+						<li class="breadcrumb-item active" th:text="${movie.name}">Movie Name</li>
+					</ol>
+
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-md-12"  th:if="${ message != null}">
+						
+						<div class="alert alert-success alert-dismissible myAlertMessage"  role="alert">
+							<button type="button" class="close" data-dissmiss="alert">&times;</button>
+							<span th:text="${message}"></span>
+						</div>
+				
+				</div>
+				
+				<!-- Display the movie image -->
+				<div class="col-xs-12 col-sm-4">
+
+					<img th:src="@{${'/images/' + movie.code + '.jpg'}}"
+						class="img img-responsive img-thumbnail" />
+				</div>
+				<!-- Display the movie description -->
+				<div class="col-xs-12 col-sm-8">
+					<span style="font-size: 1.8rem; font-weight:bold;" th:text="${movie.name}">Name</span>
+					
+					<a sec:authorize="isAuthenticated()" th:href="@{/edit/movie/{id}(id= ${movie.id})}" class="btn  btn-warning font-weight-bold"> Edit <i class="fas fa-edit"></i> </a>
+						
+						<a sec:authorize="hasAuthority('ADMIN')" id="movDelete" th:href="@{/delete/movie/{id}(id= ${movie.id})}" class="btn  btn-danger font-weight-bold"> Delete <i class="fas fa-trash"></i> </a>
+					
+					<hr />
+					<p  class="font-weight-bold">Description:</p>
+					<p th:text="${movie.description}">Description</p>
+					<hr />
+					<span  class="font-weight-bold">Director: </span>
+					<span th:text="${movie.director}" ></span>
+					<hr />
+					<span class="font-weight-bold">Genre:</span>
+					<span th:text="${movie.genre?.name}" ></span>
+					<hr />
+					<span  class="font-weight-bold">Year: </span>
+					<span th:text="${movie.year}"></span>
+					<hr />
+					<span  class="font-weight-bold"> Language Options:</span>
+					
+					<span th:each="language, iterStat : ${movie.languages}" th:text="!${iterStat.last} ? ${language} + ', ': ${language}" ></span>
+					<hr />		
+				</div>
+				<div class ="col-sm-8 offset-sm-4">
+						<h3>Cast:</h3> 
+					<table class="table  table-bordered">
+						<thead>
+							<tr>
+								<th>Real Name</th>
+								<th>Role Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:if="${movie.castList.empty}">
+								<td colspan="2">No Cast Available</td>
+							</tr>
+							<tr style="color:#007bff" th:each="cast : ${movie.castList}">
+								<td><span th:text="${cast.realFullName}"> Real name </span></td>
+								<td><span th:text="${cast.roleName}"> Role name </span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>

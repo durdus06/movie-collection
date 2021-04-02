@@ -1,0 +1,102 @@
+ /*!
+ * Start Bootstrap - Shop Item (https://startbootstrap.com/template-overviews/shop-item)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-item/blob/master/LICENSE)
+ */
+ 
+html {
+	height:100%;
+}
+body {
+  height:100%;
+}
+
+/*
+   Custom styling
+*/
+
+.wrapper {
+	min-height:100%;
+	position: relative;	
+}
+
+.content {
+	padding-bottom: 60px; /*height of the footer */
+}
+
+.footer {
+	position: absolute;
+	bottom:0;
+	height: 60px;
+	width: 100%;
+}
+
+.dataTableImg {
+	width: 100px;
+	height: 150px;
+}
+.myDataTable {
+
+  margin: 0 auto;
+  width: 100%;
+  clear: both;
+  border-collapse: collapse;
+  table-layout: fixed; 
+  word-wrap:break-word; 
+
+}
+
+.help-block {
+	color: #ff0000;
+}
+
+.myAlertMessage {
+	text-align: center !important;
+	font-weight: 700 !important;
+	font-size: 1.5rem !important;	
+}
+
+.adminDataTableImg {
+	height: 100px !important;
+	width: 100px !important;
+}
+
+
+
+.editLink{
+	color:white;
+}
+.eyePass i {
+	margin-top: 10px;
+    cursor: pointer;
+}
+.alert-custom {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+
+/*Language Checkbox */
+
+
+.checklist .checkbox {
+    position: relative;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.checklist .checkbox+.checkbox {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*Align data center of the columns in the DataTable*/
+
+th.dt-center, td.dt-center { text-align: center; }
+#movieListTable  td, th{
+  
+        vertical-align: middle;
+   
+  
+}

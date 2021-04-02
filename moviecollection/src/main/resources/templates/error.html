@@ -1,0 +1,72 @@
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title th:text="'Movie Collection -' + ${status}">Movie Collection - Error Status</title>
+
+<!-- Bootstrap CSS  -->
+<link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
+
+<!-- Bootstrap Literia Theme CSS -->
+<link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap-literia-theme.min.css" th:href="@{/css/bootstrap-literia-theme.min.css}" />
+
+
+<!-- Fontawsome css -->
+<link rel="stylesheet" type="text/css" media="all" href="../../css/all.css" th:href="@{/css/all.css}" />
+
+
+<!-- Custom   CSS -->
+<link rel="stylesheet" type="text/css" media="all" href="../../css/mybookstore.css" th:href="@{/css/mybookstore.css}" />
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- Navigation -->
+		<nav
+			class="navbar navbar-expand-lg navbar-inverse navbar-light bg-light">
+			<div class="container">
+				<div class="navbar-header font-weight-bold">
+					<a class="nav-link" th:href="@{/home}">Home</a>
+				</div>
+			</div>
+		</nav>
+		
+		<!-- Page Content -->
+		<div class="content">
+			<section layout:fragment="errorcontent">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-md-10">
+							<div class="jumbotron">
+								<h1 th:text="${errorTitle}"></h1>
+								<hr />
+								<blockquote style="word-wrap: break-word" class="blockquote" th:text="${errorDescription}"></blockquote>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- Footer -->
+		<div th:replace="fragments/footer :: footer"></div>
+
+		<!-- jQuery -->
+		<script th:src="@{/js/jquery.min.js}"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<!-- Custom JavaScript   -->
+		<script th:src="@{/js/mybookstore.js}"></script>
+	</div>
+</body>
+
+</html>

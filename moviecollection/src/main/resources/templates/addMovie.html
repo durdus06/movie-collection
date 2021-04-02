@@ -1,0 +1,260 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout.html}">
+
+<head>
+<title>Add Movie</title>
+</head>
+
+<body>
+	<div layout:fragment="pagecontent">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 offset-md-1">
+					<div class="card">
+						<div class="card-header bg-primary text-center text-white">
+							<h4>Movie Information</h4>
+						</div>
+						
+						<div class="card-body">
+							
+							<!--FORM ELEMENTS  -->
+							<form id="movieForm" th:action="@{/add/movie}"
+								class="form-horizontal" th:object="${movie}" method="post"
+								enctype="multipart/form-data">
+
+								<!-- Hidden fields for Movie -->
+								<input type="hidden" th:field="*{id}" /> 
+								<input type="hidden" th:field="*{code}" /> 
+								
+								<div class="form-group row">
+
+									<label
+										class="control-label col-md-3 text-md-right font-weight-bold"
+										for="name">Movie Name: </label>
+									<div class="col-md-9">
+										<input type="text" th:field="*{name}" name="name" id="name"
+											placeholder="Movie Name" class="form-control" /> <em
+											th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+											style="color: red">Name Error</em>
+									</div>
+
+
+								</div>
+								<div class="form-group row">
+
+									<label
+										class="control-label col-md-3  text-md-right font-weight-bold"
+										for="author">Director: </label>
+									<div class="col-md-9">
+										<input type="text" th:field="*{director}" name="director"
+											id="director" placeholder="Director" class="form-control" />
+										<em th:if="${#fields.hasErrors('director')}"
+											th:errors="*{director}" style="color: red">Director
+											Error</em>
+									</div>
+
+
+								</div>
+
+								<div class="form-group row">
+
+									<label
+										class="control-label col-md-3  text-md-right font-weight-bold"
+										for="description">Description: </label>
+									<div class="col-md-9">
+										<textarea name="description" th:field="*{description}"
+											id="description" rows="4" placeholder="Write a description"
+											class="form-control">
+									</textarea>
+										<em th:if="${#fields.hasErrors('description')}"
+											th:errors="*{description}" style="color: red">Description
+											Error</em>
+									</div>
+
+
+								</div>
+								<div class="form-group row">
+
+									<label
+										class="control-label col-md-3  text-md-right font-weight-bold"
+										for="year">Year: </label>
+									<div class="col-md-9">
+										<input type="text" th:field="*{year}" name="year" id="year"
+											placeholder="Year" class="form-control" /> <em
+											th:if="${#fields.hasErrors('year')}" th:errors="*{year}"
+											style="color: red">Year Error</em>
+									</div>
+
+
+								</div>
+
+								<div class="form-group row">
+
+									<label
+										class="control-label col-md-3  text-md-right font-weight-bold"
+										for="file">Select an Image: </label>
+									<div class="col-md-9">
+										<input type="file" th:field="*{file}" name="imageFile"
+											id="imageFile" class="form-control" /> <em
+											th:if="${#fields.hasErrors('file')}" th:errors="*{file}"
+											style="color: red">File Error</em>
+									</div>
+
+
+								</div>
+
+								<div class="form-group row">
+									<label
+										class="control-label col-md-3  text-md-right font-weight-bold"
+										for="languages">Available Languages: </label>
+									<div class="col-md-9">
+									 <div class="row checklist">
+										<div class="checkbox col-xs-6 col-sm-4 col-md-3 col-lg-3" th:each="language : ${allLanguages}">
+											
+												<label style="white-space: nowrap;">
+													 <input type="checkbox" th:field="*{languages}" th:value="${language.id}" /> 
+													 <span th:text="${language.name}">example</span>
+												</label>
+											
+										</div>
+										</div>
+									</div>
+								</div>
+								
+								
+								
+								<div class="form-group row">
+									<label
+										class="control-label col-md-3  text-md-right font-weight-bold"
+										for="genreId">Select Genre: </label>
+									<div class="col-md-9">
+										<select class="form-control" id="genreId"
+											th:field="*{genre}">
+											<option th:each="gen : ${genres}" th:value="${gen.id}"
+												th:text="${gen.name}">Genre</option>
+										</select>
+									</div>
+								</div>
+
+							<div th:if="${movie.id == 0}">
+								<div class="text-right">
+									<button type="button" data-toggle="modal"
+										data-target="#myGenreModal" class="btn btn-warning btn-md">Add Genre</button>
+								</div>
+							</div>	
+									<br/> <br/>
+
+								<div class="card">
+									<div class="card-header dynamic-update-rows">
+										Cast
+
+										<button type="button" name="addCast"
+											class="btn btn-sm btn-success float-right"
+											data-dynamic-update-rows-url="/add/cast">
+											<i class="fas fa-plus"></i>
+										</button>
+
+									</div>
+									<div class="card-body">
+
+										<table class="table dynamic-update-rows" style="width: 100%">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>Real Name</th>
+													<th>Role Name</th>
+												</tr>
+											</thead>
+											<tbody id="dynamicTableContents">
+												<tr th:fragment="crew"
+													th:each="cast,rowStat : ${movie.castList}">
+													<td th:text="${rowStat.count}">1</td>
+
+													<td>
+													<input type="hidden" th:field="${movie.castList[__${rowStat.index}__].id}"/>
+														<input class="form-control form-control-sm"
+														th:field="${movie.castList[__${rowStat.index}__].realFullName}"  th:errorclass="is-invalid" />
+
+														<div
+															th:if="${#fields.hasErrors('${movie.castList[__${rowStat.index}__].realFullName}')}"
+															class="invalid-feedback"
+															th:errors="${movie.castList[__${rowStat.index}__].realFullName}">						
+														</div>
+
+													</td>
+
+													<td><input class="form-control form-control-sm"
+														th:field="${movie.castList[__${rowStat.index}__].roleName}" />
+													</td>
+													<td>
+														<div class="btn-group">
+															<button type="button" name="removeDynamicRow"
+																th:value="${rowStat.index}"
+																class="btn btn-sm btn-danger"
+																data-dynamic-update-rows-url="/remove/cast">
+																<i class="fas fa-trash"></i>
+															</button>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class=" col-md-4 offset-md-4">
+								<button type="submit" style= "font-size: 1.2rem" class="btn btn-primary btn-block font-weight-bold">Submit</button>
+								</div>
+								<hr />
+								<br />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="modal fade" id="myGenreModal" tabindex="-1"
+					role="dialog" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="myCategoryModalLabel">Add New
+									Genre</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form id="genreForm" th:object="${genre}"
+									th:action="@{/add/genre}" method="post"
+									class="form-horizontal">
+									<div class="form-group row">
+										<label for="genre_name" class="control-label col-md-4">Name:</label>
+										<div class="col-md-8">
+											<input type="text" th:field="*{name}" id="genre_name"
+												class="form-control" />
+										</div>
+									</div>
+								
+									<div class="form-group row">
+										<div class="offset-md-4 col-md-8">
+											<input type="submit" value="Add Genre"
+												class="btn btn-primary" />
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>

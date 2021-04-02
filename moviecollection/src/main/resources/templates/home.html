@@ -1,0 +1,68 @@
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+	
+<head>
+<title>Home</title>
+</head>
+
+<body>
+	<div layout:fragment="pagecontent">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-lg-3">
+				<div th:replace="fragments/sidebar :: sidebar"></div>
+				
+
+				</div>
+				<!-- /.col-lg-3 -->
+
+				<div class="col-lg-9">
+					       
+
+          <div class="card mt-4">
+            <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+            <div class="card-body">
+              <h3 class="card-title">Information</h3>
+            
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac purus vitae mi fermentum consectetur. Praesent vel dolor congue, scelerisque nisi a, vulputate dolor. Cras pellentesque leo ut risus lobortis porttitor. Sed dignissim, eros vel facilisis dignissim, erat nulla facilisis.</p>
+             
+            </div>
+          </div>
+          <!-- /.card -->
+
+          <div class="card card-outline-secondary my-4">
+            <div class="card-header">
+              Movie Collection
+            </div>
+            <div class="card-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel nunc id est iaculis sagittis. Vestibulum non gravida lacus. Quisque mollis non ligula sed varius. Donec quis tortor ipsum. Curabitur pellentesque consectetur elementum. Nulla mollis.</p>
+             
+              <hr>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel nunc id est iaculis sagittis. Vestibulum non gravida lacus. Quisque mollis non ligula sed varius. Donec quis tortor ipsum. Curabitur pellentesque consectetur elementum. Nulla mollis.</p>
+            
+              <hr>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel nunc id est iaculis sagittis. Vestibulum non gravida lacus. Quisque mollis non ligula sed varius. Donec quis tortor ipsum. Curabitur pellentesque consectetur elementum. Nulla mollis.</p>
+            
+              <hr>
+             
+            </div>
+          </div>
+          <!-- /.card -->
+
+       
+				
+				</div>
+				<!-- /.col-lg-9 -->
+
+			</div>
+			<!-- /.row -->
+
+		</div>
+		<!-- /.container -->
+	</div>
+
+</body>
