@@ -21,18 +21,18 @@ Movie Collection responsive mobil uyumlu bir projedir. Kullanıcılar email adre
     - Mobil uyumlu olması
 
 ### Bootstrap
-    Hızlı tasarım ve ihtiyacınıza göre düzenleyebileceğiniz responsive mobil cihazlarla uyumlu siteler geliştirilmesine olanak tanıyan dünyanın en popüler front-end aracıdır. Bu sayede hazırlamış olduğum proje responsive bir tasarıma sahiptir.
+Hızlı tasarım ve ihtiyacınıza göre düzenleyebileceğiniz responsive mobil cihazlarla uyumlu siteler geliştirilmesine olanak tanıyan dünyanın en popüler front-end aracıdır. Bu sayede hazırlamış olduğum proje responsive bir tasarıma sahiptir.
 
 ### Bootbox.js
-    Gerekli DOM elemanları veya JavaScript event handlers oluşturma, yönetme veya kaldırma konusunda düşünmemize gerek kalmadan Bootstrap modals kullanarak programlanabilir dialog box oluşturmayı sağlayan küçük bir JavaScript kütüphanesidir. 
+Gerekli DOM elemanları veya JavaScript event handlers oluşturma, yönetme veya kaldırma konusunda düşünmemize gerek kalmadan Bootstrap modals kullanarak programlanabilir dialog box oluşturmayı sağlayan küçük bir JavaScript kütüphanesidir. 
 
 
 ### Thymeleaf Layout Dialect
-    Kodun yeniden kullanımını iyileştirmek için  layout ve yeniden kullanılabilir template oluşturmamıza imkan tanıyan Thymeleaf için bir diyalekttir.
+Kodun yeniden kullanımını iyileştirmek için  layout ve yeniden kullanılabilir template oluşturmamıza imkan tanıyan Thymeleaf için bir diyalekttir.
 
 ### jQuery Validation Plugin
-    Bu jQuery eklentisi, çok sayıda özelleştirme seçeneği sunarken, clientside form validation işlemini kolaylaştırır. Tüm methodlarda varsayılan olarak İngilizce hata mesajları bulunmaktadır ve bu mesajlar 37 diğer dile çevrilmiştir.
+Bu jQuery eklentisi, çok sayıda özelleştirme seçeneği sunarken, clientside form validation işlemini kolaylaştırır. Tüm methodlarda varsayılan olarak İngilizce hata mesajları bulunmaktadır ve bu mesajlar 37 diğer dile çevrilmiştir.
 
 ### Spring-boot-devtools
-    Spring-boot-devtools modülü, geliştirme sürecini hızlandırmak ve bu süreçte ek özellikler sağlamaktadır.
+Spring-boot-devtools modülü, geliştirme sürecini hızlandırmak ve bu süreçte ek özellikler sağlamaktadır.
 
